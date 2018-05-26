@@ -30,17 +30,11 @@ end
 #   end
 
 def add_item(item_title, price, quantity = 1)
-  @price = price
-  @total += price * quantity
-  if quantity > 1
-    counter = 0
-    while counter < quantity
-      @items << item_title
-      counter += 1
-    end
-  else
-    @items << item_title
+  self.total += price * quantity
+  quantity.times do
+    items << item_title
   end
+  self.last_transaction = price * quantity
 end
 
 def void_last_transaction
