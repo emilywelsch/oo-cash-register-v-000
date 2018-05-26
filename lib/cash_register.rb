@@ -21,19 +21,27 @@ def apply_discount
   end
 end
 
-def add_item(item, price, quantity = 1)
-  self.total += price * quantity
-  if quantity > 1
-      counter = 0
-      while counter < quantity
-        @items << item
-        counter += 1
-      end
-    else
-      @items << item
+def add_item(title, amount, quantity=1)
+    self.total += amount * quantity
+    quantity.times do
+      items << title
     end
-  self.last_transaction = price * quantity
-end
+    self.last_transaction = amount * quantity
+  end
+
+# def add_item(item_title, price, quantity = 1)
+#   self.total += price * quantity
+#   if quantity > 1
+#       counter = 0
+#       while counter < quantity
+#         @items << item_title
+#         counter += 1
+#       end
+#     else
+#       @items << item_title
+#     end
+#   self.last_transaction = price * quantity
+# end
 
 def void_last_transaction
   self.total -= self.last_transaction
