@@ -3,7 +3,7 @@ require 'pry'
 # learn/rspec --fail-fast
 
 class CashRegister
-attr_accessor :total, :discount, :last_transaction, :items
+attr_accessor :total, :discount, :items, :last_transaction
 
 def initialize(discount = 0)
   @total = 0
