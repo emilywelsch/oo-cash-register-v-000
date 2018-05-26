@@ -33,8 +33,8 @@ def add_item(item_title, price, quantity = 1)
   self.total += price * quantity
   quantity.times do
     items << item_title
-  end
-  self.last_transaction = price * quantity
+  # end
+  # self.last_transaction = price * quantity
 end
 
 def void_last_transaction
