@@ -3,7 +3,7 @@ require 'pry'
 # learn/rspec --fail-fast
 
 class CashRegister
-attr_accessor :total, :discount, :price, :items
+attr_accessor :total, :discount, :last_transaction, :items
 
 def initialize(discount = 0)
   @total = 0
@@ -22,8 +22,8 @@ def apply_discount
 end
 
 def add_item(item, price, quantity = 1)
-  @price = price
-  @total += price * quantity
+  @last_transaction = price
+  self.total += price * quantity
   if quantity > 1
     counter = 0
     while counter < quantity
@@ -36,7 +36,7 @@ def add_item(item, price, quantity = 1)
 end
 
 def void_last_transaction
-     @total -= @price
+     @total -= @last_transaction
 end
 
 
